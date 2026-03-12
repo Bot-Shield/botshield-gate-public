@@ -1,0 +1,37 @@
+name = "botshield-gate"
+compatibility_date = "2025-11-25"
+main = "worker/index.ts"
+
+# ── Your domain ──────────────────────────────────────────────────────────
+# Option A: Custom domain (recommended)
+# Uncomment and set your domain + zone. Requires the domain on Cloudflare.
+#
+# [[routes]]
+# pattern = "shop.yourdomain.com"
+# custom_domain = true
+# zone_name = "yourdomain.com"
+#
+# Option B: workers.dev subdomain (for testing)
+# Your worker will be available at: botshield-gate.<your-account>.workers.dev
+
+# ── KV namespace for gate config cache ───────────────────────────────────
+# Create with:  wrangler kv namespace create GATE_CACHE
+# Then paste the returned id below.
+[[kv_namespaces]]
+binding = "GATE_CACHE"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_YOUR_KV_PREVIEW_ID"
+
+# ── Environment variables ────────────────────────────────────────────────
+[vars]
+BOTSHIELD_API_URL = "https://api.botshield.ai"
+BOTSHIELD_API_KEY = ""       # Set via: wrangler secret put BOTSHIELD_API_KEY
+ORIGIN_HOST = ""             # Your origin server hostname (e.g. origin.mystore.com)
+GATE_ID = ""                 # Your gate ID from the BotShield dashboard
+
+# ── Secrets (set via CLI, not in this file) ──────────────────────────────
+# wrangler secret put BOTSHIELD_JWT_SECRET
+#   → HS256 key from your BotShield dashboard
+
+[observability]
+enabled = true
