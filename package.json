@@ -1,6 +1,6 @@
 {
   "name": "botshield-gate",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "BotShield Gate — Cloudflare Worker for anonymous human verification",
   "private": false,
   "license": "MIT",
