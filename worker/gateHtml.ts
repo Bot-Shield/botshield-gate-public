@@ -34,11 +34,10 @@ export function renderGatePage(host: string, returnTo: string, gateId: string): 
       border:1px solid rgba(255,255,255,0.06);
       border-radius:16px;
       box-shadow:0 4px 24px rgba(0,0,0,0.4);
-      padding:36px 40px;
+      padding:40px 36px 36px;
       max-width:460px;width:100%;
       text-align:center;
     }
-    .logo{display:block;height:56px;margin:0 auto 24px}
     .badge{
       display:inline-block;
       background:rgba(20,123,170,0.1);
@@ -47,14 +46,16 @@ export function renderGatePage(host: string, returnTo: string, gateId: string): 
       font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
       padding:4px 12px;border-radius:20px;margin-bottom:20px;
     }
-    h1{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:10px}
-    .host{color:#6bb6da}
-    p{color:#666;font-size:14px;line-height:1.6;margin-bottom:32px}
+    h1{font-size:24px;font-weight:600;line-height:32px;margin-bottom:20px}
+    p{color:#c7c7c7;font-size:15px;line-height:22px;margin-bottom:32px}
     .btn{
       display:block;
       background:linear-gradient(180deg,#147baa 0%,#0f5e82 100%);
       color:#fff;text-decoration:none;
-      font-size:15px;font-weight:600;padding:14px 32px;border-radius:9px;
+      font-size:14px;font-weight:500;height:44px;
+      display:flex;align-items:center;justify-content:center;
+      border-radius:9px;
+      box-shadow:0 9px 13px rgba(0,0,0,0.1),0 4px 5px rgba(0,0,0,0.1);
       transition:opacity .15s;
     }
     .btn:hover{opacity:.88}
@@ -70,17 +71,9 @@ export function renderGatePage(host: string, returnTo: string, gateId: string): 
 </head>
 <body>
   <div class="card">
-    <!--
-      Replace the logo URL below with your own if you want custom branding.
-      You can also serve it from the Worker itself using a static asset binding.
-    -->
-    <img class="logo" src="https://app.botshield.ai/public/botshield-logo-main-lg.svg" alt="BotShield">
     <div class="badge">BotShield Protection Active</div>
-    <h1>Verify your presence to continue to <span class="host">${safeHost}</span></h1>
-    <p>
-      <strong>${safeHost}</strong> is protected by BotShield.<br>
-      Complete a quick biometric check — no passwords, no tracking.
-    </p>
+    <h1>Verify your presence to continue</h1>
+    <p>This site requires human verification before continuing.</p>
     <a href="${verifyUrl}" class="btn">Verify to Continue</a>
     <div class="footer">
       Powered by <a href="https://botshield.ai" target="_blank">BotShield</a>
